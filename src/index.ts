@@ -1,10 +1,11 @@
 import express from 'express'
 const app = express()
+const port = process.env.PORT || 3003
 
-let normalResponse: any = {
+const normalResponse = {
     msg: 'App running.'
 }
-let exceptionalResponse: any = {
+const exceptionalResponse= {
     msg: 'Wow! you\'re a deep digger'
 }
 app.use('/', (req, res) => {
@@ -16,6 +17,6 @@ app.use('*', (req, res) => {
     res.json(exceptionalResponse)
 })
 
-app.listen('3003', () => {
-    console.info('3003')
+app.listen(port, () => {
+    console.info(port)
 })
